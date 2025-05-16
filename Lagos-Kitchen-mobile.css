@@ -1,0 +1,185 @@
+@media screen and (max-width: 800px) {
+    body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Foco';
+            box-sizing: border-box;
+    
+        }
+    
+    * {
+        -webkit-tap-highlight-color: transparent;
+        /* For iOS Safari */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        /* For Android Chrome, Android browser */
+        -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+        /* For older versions of Firefox */
+    }
+    
+    @font-face {
+        font-family: 'Foco';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Foco'), url('./FOCO.woff') format('woff');
+    }
+    
+    
+    @font-face {
+        font-family: 'Foco Bold';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Foco Bold'), url('./FOCOBOLD.woff') format('woff');
+    }
+
+    .div0 {
+        width: 100%;
+        height: 75px;
+        background-color: white;
+        padding-left: 20px;
+        padding-right: 15px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+    }
+
+    .div1 {
+    margin-right: 15px;
+    }
+    
+    .div1 > *:not(.div4):not(.div3){
+    display: none;
+    }
+
+    .slides img {
+        width: 100%;
+        height: auto;
+    }
+
+.food-type{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #f9f9f9;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+    border-bottom: 1px solid black;
+}
+
+.food-type div{
+    width: 65px;
+    height: 35px;
+    border-radius: 15px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.food-type div.active {
+    background-color: #e63946;
+    color: white;
+}
+
+.footer-head{
+    width: 100%;
+    height: fit-content;
+    background-color: #f5f5f7;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+
+.footer-big {
+    display: none;
+}
+
+.footer-small {
+    display: block;
+}
+
+.footer-small > button{
+    display: flex;
+    width: 90%;
+    height: 35px;
+    margin: auto;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border:none;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.content-holder {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.content{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-decoration: none;
+    box-sizing: border-box;
+    padding-top: 15px;
+}
+
+.content a{
+    text-decoration: none;
+    
+    cursor: pointer;
+}
+
+.footer-small> .Join {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.footer-small> .Join h4 {
+    display: block;
+    text-align: center;
+    color: black;
+}
+
+.footer-small> .follow {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    color: black;
+}
+
+.footer-small   a{
+    color: black;
+}
+
+.footer-end {
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    width: 98%;
+    margin: auto;
+    color:black;
+    align-items: center;
+}
+
+.footer-end>.Policy {
+    min-width: 390px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-end>.Policy>a {
+    color: black;
+    text-decoration: none;
+}
+
+}

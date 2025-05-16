@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lagos Kitchen - Chop Life Full</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0," />
+        <meta name="author" content="Chinonso" />
+        <meta name="keywords" content=" Order food, Fast food, Online, Pay, Delicious, hot, drink, Africana Food, Food Truck, Take away, Lagos fast food, Nigerian" />
+        <meta name="description" content="At Lagos Kitchen, our goal is to provide affordable, quality Nigerian meals to the community. We believe food should be enjoyable and stress-free — because you no come to this life to suffer. Developed by Chinonso." />
+        <link rel="icon" href="./Logo.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="./Logo.png">
+        <link rel="stylesheet" href="./animation/animatestyle.css.css" />
+        <link rel="stylesheet" href="./animation/wickedcss.min.css" />
+        <link rel="stylesheet" href="./font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" />
+        <link rel="stylesheet" href="./Lagos-Kitchen.css">
+        <link rel="stylesheet" href="./Lagos-Kitchen-mobile.css">
+        <script src="./Lagos-Kitchen.js"></script>
+    </head>
+    <body>
+        <div class="div0">
+            <a href="./index.html" target="_top"> <img src="./Logo.png" title="logo" alt="Logo" class="img1"> </a>
+            <div class="div1">
+                <div class="div2">
+                    <select name="Type" title="type" class="select1" onchange="scrollTo()">
+                        <option> All </option>
+                        <option> Food</option>
+                        <option> Snack</option>
+                        <option> Drink</option>
+                        <option> Combo</option>
+                    </select>
+                    <input type="search" placeholder="What are your order foodie" class="search1">
+                </div>
+                <div class="div3" id="div3">
+                    <p>Hello,</p>
+                    <span id="usernamePlace">User</span>
+                    <div id="tooltip-name" class="tooltip-name"></div>
+                </div>
+                <div class="div4" onclick="Cart()">
+                    <i class="fa fa-shopping-cart" aria-hidden="true" id="fa1"></i>
+                    <span id="cart-count" class="badge">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="div5-slides-container">
+            <div class="slides">
+                <img src="./food-slider/food-slider 1.png" alt="food14" class="img2">
+            </div>
+            <div class="slides">
+                <img src="./food-slider/food-slider 2.png" alt="food2" class="img2">
+            </div>
+            <div class="slides">
+                <img src="./food-slider/food-slider 3.png" alt="food3" class="img2">
+            </div>
+            <div class="slides">
+                <img src="./food-slider/food-slider 4.png" alt="food4" class="img2">
+            </div>
+            <button class="prev" type="button"> <i class="fa fa-chevron-left"></i> </button>
+            <button class="next" type="button"> <i class="fa fa-chevron-right"></i> </button>
+        </div>
+        <div class="food-type">
+            <div> Meals</div>
+            <div> Snacks</div>
+            <div> Drinks</div>
+            <div> Combo</div>
+        </div>
+
+        <h1 id="meals">Meals</h1>
+        <div class="div6" data-section="meals">
+            <div class="div7">
+                <img src="./Foods/food 1.png" title="food1" alt="Jollof Rice & Grilled Chicken" class="img3">
+                <div>
+                    <h3> Jollof Rice & Grilled Chicken </h3>
+                    <p> Price: $12.00 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Foods/food 9.png" title="food1" alt="Grilled Chicken with Rosemary" class="img3">
+                <div>
+                    <h3> Grilled Chicken with Rosemary </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Foods/food 2.png" title="food1" alt="Burger & Fries" class="img3">
+                <div>
+                    <h3> Burger & Fries </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Foods/food 3.png" title="food1" alt="Shawarma" class="img3">
+                <div>
+                    <h3> Shawarma (Chicken or Beef)</h3>
+                    <input type="radio" name="Shawarma-type" value="Chicken" title="Chicken Shawarma"> Chicken
+                    <input type="radio" name="Shawarma-type" value="Beef" title="Beef Shawarma"> Beef
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Foods/food 4.png" title="food1" alt="Fried Rice & Plantain" class="img3">
+                <div>
+                    <h3> Fried Rice & Plantain </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Foods/food 1.png" title="food1" alt="Fried Chicken, Crispy Fried Chicken and fried potato with sausc" class="img3">
+                <div>
+                    <h3> Fried Chicken, Crispy Fried Chicken and fried potato with sausc </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Foods/food 15.png" title="food1" alt="Bowl of Noodles" class="img3">
+                <div>
+                    <h3> Bowl of Noodles </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Foods/food 14.png" title="food1" alt="Chicken Burritos" class="img3">
+                <div>
+                    <h3> Chicken Burritos </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+        </div>
+
+        <h1 id="snacks">Snacks</h1>
+        <div class="div6" data-section="snacks">
+            <div class="div7">
+                <img src="./Snacks/snack 1.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
+                <div>
+                    <h3> Grilled Sandwich with Vegetables and Cheese </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Snacks/snack 2.png" title="food1" alt="Puff-Puff (6 pcs)" class="img3">
+                <div>
+                    <h3> Puff-Puff (6 pcs)</h3>
+                    <p> Price: $12.00 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Snacks/snack 3.png" title="food1" alt="Meat Pie" class="img3">
+                <div>
+                    <h3> Meat Pie </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Snacks/snack 4.png" title="food1" alt="Small Chops Box" class="img3">
+                <div>
+                    <h3> Small Chops Box</h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Snacks/snack 5.png" title="food1" alt="Suya Skewers (2 sticks)" class="img3">
+                <div>
+                    <h3> Suya Skewers (2 sticks) </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Snacks/snack 6.png" title="food1" alt="Samosa" class="img3">
+                <div>
+                    <h3> Samosa </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Snacks/snack 7.png" title="food1" alt="Chin Chin (Small pack)" class="img3">
+                <div>
+                    <h3> Chin Chin (Small pack) </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Snacks/snack 8.png" title="food1" alt="Moi Moi" class="img3">
+                <div>
+                    <h3> Moi Moi </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Snacks/snack 9.png" title="food1" alt="Moi Moi" class="img3">
+                <div>
+                    <h3> Moi Moi </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+        </div>
+
+        <h1 id="drinks">Drinks</h1>
+        <div class="div6" data-section="drinks">
+            <div class="div7">
+                <img src="./Drinks/drink 1.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
+                <div>
+                    <h3> Zobo </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Drinks/drink 2.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
+                <div>
+                    <h3> Strawberry Juice </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Drinks/drink 3.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
+                <div>
+                    <h3> Coca-Cola soda </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Drinks/drink 4.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
+                <div>
+                    <h3> Sprite soda </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Drinks/drink 5.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
+                <div>
+                    <h3> Fanta soda </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Drinks/drink 6.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
+                <div>
+                    <h3> Chapman </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            <div class="div7">
+                <img src="./Drinks/drink 7.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
+                <div>
+                    <h3> Apple Juice </h3>
+                    <p> Price: $10 </p>
+                    <button class="btn1"> Add to Cart </button>
+                </div>
+            </div>
+            
+        </div>
+
+        <!--Below is footer one design for bigger and other for small screen... -->
+        <div class="footer-head">
+            <div class="footer-big"> <!-- lager screen footer-->
+                <img src="./Logo.png" title="logo" alt="logo" class="img1">
+                <div>
+                    <h4>About Us</h4>
+                    <a href="./index3.html" target="_top"> Our History</a>
+                    <a href="./index3.html" target="_top"> Executive Team</a>
+                </div>
+                <div>
+                    <h4>Our Food</h4>
+                    <a href="./index3.html" target="_top"> Our Food</a>
+                    <a href="./index3.html" target="_top"> Sourcing</a>
+                    <a href="./index3.html" target="_top"> Food Safety</a>
+                </div>
+                <div>
+                    <h4>Contact Us</h4>
+                    <a href="./index3.html" target="_top"> Contact Us</a>
+                    <a href="./index3.html" target="_top"> FQAs</a>
+                    <a href="./index3.html" target="_top"> Job Opportunities</a>
+                </div>
+                <div class="Join">
+                    <h4>Join us on</h4>
+                    <div class="follow">
+                        <a href="./index3.html" target="_top"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="footer-small"> <!-- small screen footer-->
+                <button type="button" title=" About Us" id="About-Us" onclick="toggleAccordion('About-Us')" class="button2">
+                    About Us <i class="fa fa-plus" aria-hidden="true"></i></button>
+                <div class="content-holder">
+                    <div class="content">
+                        <a href="./index3.html" target="_top"> Our History</a>
+                        <a href="./index3.html" target="_top"> Executive Team</a>
+                    </div>
+                </div>
+                <hr>
+                <button type="button" title=" Our Food" id="Our-Food" onclick="toggleAccordion('Our-Food')" class="button2"> Our Food <i class="fa fa-plus" aria-hidden="true"></i></button>
+                <div class="content-holder">
+                    <div class="content">
+                        <a href="./index3.html" target="_top"> Our Food</a>
+                        <a href="./index3.html" target="_top"> Sourcing</a>
+                        <a href="./index3.html" target="_top"> Food Safety</a>
+                    </div>
+                </div>
+                <hr>
+                <button type="button" title=" Contact Us" id="Contact-Us" onclick="toggleAccordion('Contact-Us')"
+                    class="button2"> Contact Us <i class="fa fa-plus" aria-hidden="true"></i></button>
+                <div class="content-holder">
+                    <div class="content">
+                        <a href="./index3.html" target="_top"> Contact Us</a>
+                        <a href="./index3.html" target="_top"> FQAs</a>
+                        <a href="./index3.html" target="_top"> Job Opportunities</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="Join">
+                    <h4>Follow us on</h4>
+                    <div class="follow">
+                        <a href="./index3.html" target="_top"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="./index3.html" target="_top"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="footer-end"> <!-- Both small and lages screen footer-->
+                <div class="Policy">
+                    <a href="./index3.html" target="_top" title="Privacy Policy">Privacy Policy</a>
+                    <a href="./index3.html" target="_top" title="Terms & Conditions">Terms & Conditions</a>
+                    <a href="./index3.html" target="_top" title="Accessibility">Accessibility</a>
+                </div>
+                <div>
+                    <p id="copyright"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
