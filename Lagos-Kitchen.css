@@ -30,6 +30,88 @@ body {
 
 }
 
+body.noscroll {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.request-name {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.request-name > .fa-times{
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin:30px 30px 0 0;
+    scale: 2;
+    color: white;
+    box-sizing: border-box;
+}
+.name-box {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    max-width: 400px;
+    width: 90%;
+}
+
+.name-box input {
+    display: block;
+    width: 100%;
+    height: 38px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: black;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.name-box input::placeholder {
+    color: gray;
+    /* default */
+}
+
+.name-box input.error::placeholder {
+    color: red;
+}
+
+.name-box h5 {
+    text-align: left;
+}
+
+.small-tip {
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.name-box button {
+    padding: 10px;
+    background-color: rgb(229, 3, 3);
+    margin-top: 10px;
+    width: 40%;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 .div0 {
     width: 100%;
     height: 75px;
@@ -61,13 +143,19 @@ body {
 }
 
 .div2 {
-    margin-left: 10px;
+    margin-left: 30px;
     margin-right: 5px;
     width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
 
+.div2 > div{
+    flex: 1;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
 }
 
 .select1 {
@@ -86,7 +174,7 @@ body {
 
 .search1 {
     height: 45px;
-    width: 90%;
+    width: 100%;
     margin: 0px;
     padding-left: 5px;
     border: none;
@@ -96,6 +184,23 @@ body {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border: 0.5px solid black;
+}
+
+.search-results {
+    width: 100%;
+    top: 150%;
+    left: 0;
+    position: absolute;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display:none;
+    max-height: 200px; /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    box-sizing: border-box;
+    z-index: 999;
 }
 
 .div3 {
@@ -109,6 +214,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border: 1px solid red;
 
 }
 

@@ -1,3 +1,7 @@
+//window.onload = function () {
+//    document.body.classList.add('noscroll'); // Disable scroll when overlay is showing
+//};
+
 document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndex = 0; // Start with the first slide
@@ -76,10 +80,157 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+    const searchInput = document.querySelector('.search1');
+    const selectInput = document.querySelector('.select1');
+    const resultsBox = document.getElementById('searchResults');
 
 
+
+    // Perform search based on input and selected type
+    function performSearch() {
+        const searchValue = searchInput.value.trim().toLowerCase();
+        const selectedType = selectInput.value.trim().toLowerCase();
+        const keywords = searchValue.split(/\s+/);
+
+        if (searchValue !== "") {
+            let results = [];
+
+            const allSections = document.querySelectorAll('.div6');
+
+            allSections.forEach(section => {
+                const sectionType = section.getAttribute('data-section').toLowerCase();
+
+                if (selectedType === 'all' || sectionType === selectedType) {
+                    const items = section.querySelectorAll('.div7');
+
+                    items.forEach(item => {
+                        const title = item.querySelector('h3').textContent.toLowerCase();
+
+                        const isMatch = keywords.every(word => title.includes(word));
+
+                        if (isMatch) {
+                            results.push(title);
+                        }
+                    });
+                }
+            });
+
+            displayResults(results);
+        } else {
+            resultsBox.style.display = "none";
+        }
+    }
+
+    // Display results
+    function displayResults(results) {
+        resultsBox.style.display = "block";
+        resultsBox.innerHTML = '';
+
+        if (results.length === 0) {
+            resultsBox.innerHTML = '<p>No results found</p>';
+            resultsBox.style.color = 'red';
+            return;
+        }
+
+        results.forEach(title => {
+            const p = document.createElement('p');
+            p.textContent = title;
+            resultsBox.style.color = 'black';
+            resultsBox.style.cursor = "pointer";
+
+            resultsBox.appendChild(p);
+        });
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', performSearch);
+    selectInput.addEventListener('change', performSearch);
 
 })
+
+function closeRequestTab() {
+    var userName = document.getElementById("username");
+    var requestname = document.getElementById("request-name");
+    var value = userName.value.trim();
+    if (value === "") {
+        userName.classList.remove("error");
+        userName.classList.remove("shake")
+        userName.classList.add("error")
+        userName.placeholder = "Your name is needed to know you"
+        userName.classList.add("shake")
+        setTimeout(() => {
+            userName.placeholder = "What is your name?";
+            userName.classList.remove("error");
+            userName.classList.remove("shake")
+        }, 2000);
+    } else {
+        requestname.style.display = "none";
+        document.body.classList.remove('noscroll');
+        updateName()
+    }
+}
+
+function updateName() {
+    var userName = document.getElementById("username").value;
+    var tooltipname = document.getElementById("tooltip-name");
+    var usernamePlace = document.getElementById("usernamePlace");
+    var div3 = document.getElementById("div3");
+
+    if (userName.length > 8) {
+        usernamePlace.textContent = userName;
+        tooltipname.textContent = userName;
+
+        if (window.innerWidth <= 1023) {
+            enableMobileTooltip();
+            tooltipname.classList.add("tooltip-name")
+        } else {
+            disableMobileTooltip();
+            tooltipname.classList.add("tooltip-name")
+            div3.classList.add("namediplay")
+        }
+    } else {
+        usernamePlace.textContent = userName;
+        tooltipname.classList.remove("tooltip-name");
+        tooltipname.style.display = "none"; // hide tooltip if not needed
+        disableMobileTooltip();
+    }
+}
+
+function enableMobileTooltip() {
+    var div3 = document.getElementById("div3");
+    var tooltipname = document.getElementById("tooltip-name");
+
+    // Remove any previous click to avoid stacking
+    div3.onclick = function () {
+        if (tooltipname.style.display = "none") {
+            tooltipname.style.display = "block";
+        }
+    };
+
+    // Listen for click outside
+    document.addEventListener("click", closeTooltipOutside);
+}
+
+function disableMobileTooltip() {
+    var usernamePlace = document.getElementById("usernamePlace");
+
+    usernamePlace.onclick = null;
+    document.removeEventListener("click", closeTooltipOutside);
+}
+
+function closeTooltipOutside(event) {
+    var usernamePlace = document.getElementById("usernamePlace");
+    var tooltipname = document.getElementById("tooltip-name");
+
+    if (!usernamePlace.contains(event.target) && !tooltipname.contains(event.target)) {
+        tooltipname.style.display = "none";
+    }
+}
+
+function closeRequest(event){
+    var requestname = document.getElementById("request-name");
+    requestname.style.display ="none"
+}
 
 function toggleAccordion(buttonId) {
     var button = document.getElementById(buttonId);

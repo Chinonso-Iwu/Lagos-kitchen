@@ -17,18 +17,37 @@
         <script src="./Lagos-Kitchen.js"></script>
     </head>
     <body>
+        <!--This is the welcome page that request the user name -->
+        <div class="request-name" translate="yes" id="request-name">
+            <i class="fa fa-times" aria-hidden="true" onclick="closeRequest()"></i>
+            <div class="name-box">
+                <img src="./Logo.png" title="logo" alt="logo" class="img1">
+                <h4>Welcome to Lagos Kitchen - Chop Life Full</h4>
+                <form translate="yes">
+                    <h5>We’re excited to know you! What can we call you?</h5>
+                    <input type="text" id="username" translate="yes" title="What is your name" placeholder="What is your name?"
+                        required>
+                    <p class="small-tip">(Short names or nicknames work great!)</p>
+                    <button title="Ok" type="button" onclick="closeRequestTab()">Ok</button>
+                </form>
+            </div>
+        </div>
+
         <div class="div0">
             <a href="./index.html" target="_top"> <img src="./Logo.png" title="logo" alt="Logo" class="img1"> </a>
             <div class="div1">
                 <div class="div2">
-                    <select name="Type" title="type" class="select1" onchange="scrollTo()">
-                        <option> All </option>
-                        <option> Food</option>
-                        <option> Snack</option>
-                        <option> Drink</option>
-                        <option> Combo</option>
+                    <select name="Type" title="type" class="select1">
+                        <option value="All"> All </option>
+                        <option value="Meals"> Meals</option>
+                        <option value="Snacks"> Snacks</option>
+                        <option value="Drinks"> Drinks</option>
+                        <option value="Combos"> Combos</option>
                     </select>
-                    <input type="search" placeholder="What are your order foodie" class="search1">
+                    <div>
+                        <input type="search" placeholder="What are your order foodie" class="search1">
+                        <div id="searchResults" class="search-results"></div>
+                    </div>
                 </div>
                 <div class="div3" id="div3">
                     <p>Hello,</p>
