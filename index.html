@@ -18,9 +18,9 @@
     </head>
     <body>
         <!--This is the welcome page that request the user name -->
-        <div class="request-name" translate="yes" id="request-name">
-            <i class="fa fa-times" aria-hidden="true" onclick="closeRequest()"></i>
-            <div class="name-box">
+        <div class="request-name" translate="yes" id="request-name" onclick="closeTab()">
+            <i class="fa fa-times" aria-hidden="true" onclick="document.getElementById('request-name').style.display='none'"></i>
+            <div class="name-box" id="name-box">
                 <img src="./Logo.png" title="logo" alt="logo" class="img1">
                 <h4>Welcome to Lagos Kitchen - Chop Life Full</h4>
                 <form translate="yes">
@@ -34,10 +34,49 @@
         </div>
 
         <!-- This is the div for displaying any food the user click on-->
-         <div class="food-displayer">
-            
-
-         </div>
+        <div class="food-displayer" id="food-displayer" onclick="closeTab2(event)">
+            <i class="fa fa-times" aria-hidden="true" onclick="document.getElementById('food-displayer').style.display='none'"></i>
+            <div class="food-container" id="food-container">
+                <img src="./Foods/food 1.png" title="food1" alt="Jollof Rice & Grilled Chicken" class="img3 food-image">
+                <div class="food-details">
+                    <h3 id="food-title">Jollof Rice & Grilled Chicken</h3>
+                    <div class="scrollable" id="scrollable">
+                        <p>A popular West African dish made with rice simmered in a rich tomato-based sauce, often served with spicy, juicy grilled
+                        chicken. It's a party favorite across Nigeria and beyond.</p>
+                        <b>Ingredients</b>
+                        <ul>
+                            <li>Long grain parboiled rice</li>
+                            <li>Fresh tomatoes</li>
+                            <li>Tomato paste</li>
+                            <li>Red bell peppers</li>
+                            <li>Scotch bonnet (ata rodo)</li>
+                            <li>Onions</li>
+                            <li>Garlic</li>
+                            <li>Ginger</li>
+                            <li>Vegetable oil</li>
+                            <li>Chicken or beef stock</li>
+                            <li>Thyme</li>
+                            <li>Bay leaves</li>
+                            <li>Curry powder</li>
+                            <li>Seasoning cubes</li>
+                            <li>Salt</li>
+                            <li>Chicken parts (drumsticks, thighs, etc.)</li>
+                            <li>Onion powder</li>
+                            <li>Thyme</li>
+                            <li>Chili powder or cayenne</li>
+                            <li>Lemon juice or vinegar</li>
+                        </ul>
+                    </div>
+                    <div class="bottom-bar">
+                        <p class="price-line ">
+                            <span>Price:</span>
+                            <span>$10</span>
+                        </p>
+                        <button class="btn1"> 🛒 Add to Cart </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="div0">
             <a href="./index.html" target="_top"> <img src="./Logo.png" title="logo" alt="Logo" class="img1"> </a>
@@ -97,7 +136,7 @@
                 <div>
                     <h3> Jollof Rice & Grilled Chicken </h3>
                     <p> Price: $12.00 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -105,7 +144,7 @@
                 <div>
                     <h3> Grilled Chicken with Rosemary </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button  > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -113,7 +152,7 @@
                 <div>
                     <h3> Burger & Fries </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -123,7 +162,7 @@
                     <input type="radio" name="Shawarma-type" value="Chicken" title="Chicken Shawarma"> Chicken
                     <input type="radio" name="Shawarma-type" value="Beef" title="Beef Shawarma"> Beef
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -131,7 +170,7 @@
                 <div>
                     <h3> Fried Rice & Plantain </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -139,7 +178,7 @@
                 <div>
                     <h3> Fried Chicken, Crispy Fried Chicken and fried potato with sausc </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -147,7 +186,7 @@
                 <div>
                     <h3> Bowl of Noodles </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -155,7 +194,7 @@
                 <div>
                     <h3> Chicken Burritos </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
         </div>
@@ -167,7 +206,7 @@
                 <div>
                     <h3> Grilled Sandwich with Vegetables and Cheese </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -175,7 +214,7 @@
                 <div>
                     <h3> Puff-Puff (6 pcs)</h3>
                     <p> Price: $12.00 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -183,7 +222,7 @@
                 <div>
                     <h3> Meat Pie </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -191,7 +230,7 @@
                 <div>
                     <h3> Small Chops Box</h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -199,7 +238,7 @@
                 <div>
                     <h3> Suya Skewers (2 sticks) </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -207,7 +246,7 @@
                 <div>
                     <h3> Samosa </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -215,7 +254,7 @@
                 <div>
                     <h3> Chin Chin (Small pack) </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -223,7 +262,7 @@
                 <div>
                     <h3> Moi Moi </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -231,7 +270,7 @@
                 <div>
                     <h3> Moi Moi </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
         </div>
@@ -243,7 +282,7 @@
                 <div>
                     <h3> Zobo </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -251,7 +290,7 @@
                 <div>
                     <h3> Strawberry Juice </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -259,7 +298,7 @@
                 <div>
                     <h3> Coca-Cola soda </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -267,7 +306,7 @@
                 <div>
                     <h3> Sprite soda </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -275,7 +314,7 @@
                 <div>
                     <h3> Fanta soda </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -283,7 +322,7 @@
                 <div>
                     <h3> Chapman </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             <div class="div7">
@@ -291,7 +330,7 @@
                 <div>
                     <h3> Apple Juice </h3>
                     <p> Price: $10 </p>
-                    <button class="btn1"> Add to Cart </button>
+                    <button > Add to Cart </button>
                 </div>
             </div>
             

@@ -146,6 +146,18 @@ document.addEventListener("DOMContentLoaded", function () {
     searchInput.addEventListener('input', performSearch);
     selectInput.addEventListener('change', performSearch);
 
+
+    const scrollableDiv = document.getElementById("scrollable");
+    const title = document.getElementById("food-title");
+
+    scrollableDiv.addEventListener("scroll", function () {
+        if (scrollableDiv.scrollTop > 0.5) {
+            title.classList.add("shadowed");
+        } else {
+            title.classList.remove("shadowed");
+        }
+    });
+
 })
 
 function closeRequestTab() {
@@ -227,10 +239,24 @@ function closeTooltipOutside(event) {
     }
 }
 
-function closeRequest(event){
+function closeTab(event){
     var requestname = document.getElementById("request-name");
-    requestname.style.display ="none"
+    if (event.target === requestname) {
+        requestname.style.display = "none"
+    }
+    
 }
+
+function closeTab2(event){
+    var foodDisplayer = document.getElementById("food-displayer");
+    if (event.target === foodDisplayer) {
+        foodDisplayer.style.display = "none";
+    }
+    
+}
+
+
+
 
 function toggleAccordion(buttonId) {
     var button = document.getElementById(buttonId);
