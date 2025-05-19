@@ -158,6 +158,36 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    const foodItems = document.querySelectorAll(".div7");
+
+    foodItems.forEach((food, index) => {
+        food.setAttribute("data-food-id", index + 1)
+    })
+
+    foodItems.forEach(Items  => {
+        Items.addEventListener("click", function(){
+            const data = this.getAttribute("data-food-id");
+            const imgSrc = this.querySelector("img").getAttribute("src");
+            const title = this.querySelector("h3").textContent.trim();
+            const priceText = this.querySelector("p").textContent.trim();
+            const priceValue = priceText.replace("Price: $", ""); // or use split("$")[1]
+
+            console.log("data:", data);
+            console.log("Image:", imgSrc);
+            console.log("Title:", title);
+            console.log("Price:", priceValue);
+        })
+
+    
+    })
+
+    const foodData = {
+        1: {
+            description: "A popular West African dish made with rice simmered in a rich tomato-based sauce, often served with spicy, juicy grilled chicken.It's a party favorite across Nigeria and beyond.", Ingredients: ["Long grain parboiled rice",] },
+    
+    };
+
+
 })
 
 function closeRequestTab() {
