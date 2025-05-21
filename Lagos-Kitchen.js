@@ -1,6 +1,13 @@
-//window.onload = function () {
-//    document.body.classList.add('noscroll'); // Disable scroll when overlay is showing
-//};
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const req = document.getElementById('request-name');
+        req.style.display = 'flex'; // show it first so opacity can animate
+        requestAnimationFrame(() => {
+            req.classList.add('show');
+            document.body.classList.add('noscroll')
+        });
+    }, 2000); // 3000 ms = 3 seconds delay
+});
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -68,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const sectionId = item.textContent.trim().toLowerCase();
             const heading = document.getElementById(sectionId);
             if (heading) {
-                const offsetTop = heading.offsetTop - 60;
+                const offsetTop = heading.offsetTop - 40;
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             }
         });
@@ -158,6 +165,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    function adjustDivHeight() {
+        const targetDiv = document.getElementById("food-container");
+        const viewportHeight = window.innerHeight;
+        const viewportwidth = window.innerWidth;
+
+        // Try to use 480px if it fits
+        if (viewportwidth > 700){
+            if (viewportHeight >= 500) {
+                targetDiv.style.height = "480px";
+            } else {
+                targetDiv.style.height = "85%";
+            }
+        }
+
+    }
+
+    // Run on page load and on window resize
+    window.addEventListener("load", adjustDivHeight);
+    window.addEventListener("resize", adjustDivHeight);
+
     const foodItems = document.querySelectorAll(".div7");
 
     foodItems.forEach((food, index) => {
@@ -172,17 +199,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const priceText = this.querySelector("p").textContent.trim();
             const priceValue = priceText.replace("Price: $", ""); // or use split("$")[1]
 
-            console.log("data:", data);
-            console.log("Image:", imgSrc);
-            console.log("Title:", title);
-            console.log("Price:", priceValue);
+            displaythefood(data, imgSrc, title, priceValue);
         })
 
     
     })
 
     const foodData = {
-        1: {description: "A popular West African dish made with rice simmered in a rich tomato-based sauce, often served with spicy, juicy grilled chicken.It's a party favorite across Nigeria and beyond.", Ingredients: ["Long grain parboiled rice"] },
+        1: { description: "Jollof Rice & Grilled Chicken is a classic West African dish, especially popular in Nigeria. The rice is cooked in a rich tomato-based sauce seasoned with peppers, onions, and spices, giving it its iconic red color and deep flavor. It’s typically served with well-marinated, juicy grilled chicken for a complete, satisfying meal.", Ingredients: ["Long Grain Rice", "Tomato Paste", "Fresh Tomatoes", "Red Bell Peppers", "Onions", "Garlic", "Ginger", "Vegetable Oil", "Chicken Broth", "Seasoning Cubes", "Thyme", "Bay Leaf", "Salt", "Grilled Chicken", "Marinade (Pepper, Onion, Spices)"] },
         2: { description: "Juicy chicken pieces marinated in olive oil, garlic, and rosemary, then grilled to perfection. It's a simple yet flavorful dish perfect for any occasion.", Ingredients: ["Chicken thighs or breasts"," olive oil", "fresh rosemary", "garlic", "lemon juice", "black pepper", "salt", "paprika", "onion powder"] },
         3: { description: "A classic fast-food combo featuring a juicy beef patty in a soft bun with toppings like lettuce, tomato, and cheese, served with crispy golden fries on the side.", Ingredients: ["Ground beef", "burger buns", "lettuce", "tomato", "cheese slices"," pickles", "onions", "ketchup", "mustard", "mayonnaise", "potatoes", 'vegetable oil', 'salt'] },
         4: { description: "A beloved street food in Nigeria, Shawarma is made by wrapping spiced grilled chicken or beef, creamy sauce, and crunchy veggies in warm flatbread. It’s a tasty, quick meal often sold by roadside vendors and eateries.", Ingredients: ["Chicken Breast or Beef Strips", "Tortilla Wraps or Flatbread", "Cabbage", "Carrots", "Cucumber", "Onions", "Garlic", "Ginger", "Mayonnaise", "Ketchup", "Hot Sauce", "Paprika", "Thyme", "Curry Powder", "Vegetable Oil", "Salt", "Black Pepper", "Bouillon Cubes"] },
@@ -200,34 +224,78 @@ document.addEventListener("DOMContentLoaded", function () {
         16: { description: "A traditional Nigerian steamed bean pudding made from peeled black-eyed peas blended with spices, onions, and peppers, wrapped in leaves or steamed in containers.", Ingredients: ["Black-eyed Peas", "Onions", "Red Bell Peppers", "Scotch Bonnet Peppers", "Vegetable Oil", "Seasoning Cubes", "Salt", "Water", "Leaf Wrappers (or aluminum foil)"] },
         17: { description: "A refreshing Nigerian drink made from dried hibiscus petals, known for its tart and fruity flavor, often served chilled.", Ingredients: ["Dried Hibiscus Petals", "Ginger", "Cloves", "Pineapple Juice", "Sugar", "Water"], },
         22: { description: "A popular Nigerian cocktail made with a mix of soft drinks, fruit juice, and a splash of bitters, served chilled with ice and slices of citrus.", Ingredients: ["Angostura Bitters", "Fanta", "Sprite", "Grenadine Syrup", "Lemon Juice", "Cucumber Slices", "Orange Slices", "Ice Cubes"] },
-        24: { description: "", Ingredients: [] },
+        24: { description: "Malta Guinness is a non-alcoholic malt beverage popular in Nigeria and other parts of Africa. It has a rich, smooth taste with a slightly sweet, malty flavor and is known for its energy-boosting properties. Often enjoyed chilled, it's a favorite for both refreshment and nutritional value.", Ingredients: ["Carbonated Water", "Malted Barley", "Sucrose", "Glucose Syrup", "Colour (Caramel E150C)", "Hops", "Vitamins (B1, B2, B3, B5, B6)"] },
         
         
     };
 
+    function displaythefood(data, imgSrc, title, priceValue){
+        const fooddisplayer = document.getElementById("food-displayer");
+        const foodtitle = document.getElementById("food-title");
+        const description = document.getElementById("description");
+        const priceTag = document.getElementById("price-tag");
+        const img = fooddisplayer.querySelector("img");
+        const Ingredientslist = document.getElementById("Ingredients-list");
+
+        // Update content
+        img.setAttribute("src", imgSrc);
+        foodtitle.textContent = title;
+        description.textContent = foodData[data]?.description || "No description available.";
+        priceTag.textContent = "$" + priceValue;
+
+        // Clear previous ingredients
+        Ingredientslist.innerHTML = "";
+
+        // Append new ingredients
+        if (foodData[data]?.Ingredients.length > 0) {
+            foodData[data].Ingredients.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                Ingredientslist.appendChild(li);
+            });
+        } else {
+            const li = document.createElement("li");
+            li.textContent = "No ingredient information available.";
+            Ingredientslist.appendChild(li);
+        }
+
+        // Show food displayer and lock background scroll
+        fooddisplayer.style.display = "flex";
+
+    }
+
 })
+
+let errorTimeoutId = null; // global or outer variable
 
 function closeRequestTab() {
     var userName = document.getElementById("username");
     var requestname = document.getElementById("request-name");
     var value = userName.value.trim();
+
     if (value === "") {
-        userName.classList.remove("error");
-        userName.classList.remove("shake")
-        userName.classList.add("error")
-        userName.placeholder = "Your name is needed to know you"
-        userName.classList.add("shake")
-        setTimeout(() => {
+        // Cancel previous timeout if it's still pending
+        if (errorTimeoutId !== null) {
+            clearTimeout(errorTimeoutId);
+        }
+
+        userName.classList.remove("error", "shake");
+        userName.classList.add("error", "shake");
+        userName.placeholder = "Your name is needed to know you";
+
+        // Set new timeout and store its ID
+        errorTimeoutId = setTimeout(() => {
             userName.placeholder = "What is your name?";
-            userName.classList.remove("error");
-            userName.classList.remove("shake")
+            userName.classList.remove("error", "shake");
+            errorTimeoutId = null; // clear the reference
         }, 2000);
     } else {
         requestname.style.display = "none";
         document.body.classList.remove('noscroll');
-        updateName()
+        updateName();
     }
 }
+
 
 function updateName() {
     var userName = document.getElementById("username").value;
@@ -284,14 +352,6 @@ function closeTooltipOutside(event) {
     if (!usernamePlace.contains(event.target) && !tooltipname.contains(event.target)) {
         tooltipname.style.display = "none";
     }
-}
-
-function closeTab(event){
-    var requestname = document.getElementById("request-name");
-    if (event.target === requestname) {
-        requestname.style.display = "none"
-    }
-    
 }
 
 function closeTab2(event){

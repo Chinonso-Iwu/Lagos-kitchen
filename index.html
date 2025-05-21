@@ -18,8 +18,8 @@
     </head>
     <body>
         <!--This is the welcome page that request the user name -->
-        <div class="request-name" translate="yes" id="request-name" onclick="closeTab()">
-            <i class="fa fa-times" aria-hidden="true" onclick="document.getElementById('request-name').style.display='none'"></i>
+        <div class="request-name" translate="yes" id="request-name">
+            <i class="fa fa-times" aria-hidden="true" onclick="document.getElementById('request-name').style.display='none', document.body.classList.remove('noscroll'),document.getElementById('request-name').remove('show')"></i>
             <div class="name-box" id="name-box">
                 <img src="./Logo.png" title="logo" alt="logo" class="img1">
                 <h4>Welcome to Lagos Kitchen - Chop Life Full</h4>
@@ -37,40 +37,19 @@
         <div class="food-displayer" id="food-displayer" onclick="closeTab2(event)">
             <i class="fa fa-times" aria-hidden="true" onclick="document.getElementById('food-displayer').style.display='none'"></i>
             <div class="food-container" id="food-container">
-                <img src="./Foods/food 1.png" title="food1" alt="Jollof Rice & Grilled Chicken" class="img3 food-image">
+                <img src="./Foods/food 1.png" title="" alt="Jollof Rice & Grilled Chicken" class="img3 food-image">
                 <div class="food-details">
-                    <h3 id="food-title">Jollof Rice & Grilled Chicken</h3>
+                    <h3 id="food-title"></h3>
                     <div class="scrollable" id="scrollable">
-                        <p>A popular West African dish made with rice simmered in a rich tomato-based sauce, often served with spicy, juicy grilled
-                        chicken. It's a party favorite across Nigeria and beyond.</p>
+                        <p id="description"></p>
                         <b>Ingredients</b>
-                        <ul>
-                            <li>Long grain parboiled rice </li>
-                            <li>Fresh tomatoes</li>
-                            <li>Tomato paste</li>
-                            <li>Red bell peppers</li>
-                            <li>Scotch bonnet (ata rodo)</li>
-                            <li>Onions</li>
-                            <li>Garlic</li>
-                            <li>Ginger</li>
-                            <li>Vegetable oil</li>
-                            <li>Chicken or beef stock</li>
-                            <li>Thyme</li>
-                            <li>Bay leaves</li>
-                            <li>Curry powder</li>
-                            <li>Seasoning cubes</li>
-                            <li>Salt</li>
-                            <li>Chicken parts (drumsticks, thighs, etc.)</li>
-                            <li>Onion powder</li>
-                            <li>Thyme</li>
-                            <li>Chili powder or cayenne</li>
-                            <li>Lemon juice or vinegar</li>
+                        <ul id="Ingredients-list">
                         </ul>
                     </div>
                     <div class="bottom-bar">
                         <p class="price-line ">
-                            <span>Price:</span>
-                            <span>$10</span>
+                            <span>Price :</span>
+                            <span id="price-tag">$10</span>
                         </p>
                         <button class="btn1"> 🛒 Add to Cart </button>
                     </div>
@@ -78,6 +57,35 @@
             </div>
         </div>
 
+        <!--cart dispay for big screen I will finish later--> 
+        <!--<div class="cart-div1">
+            <div class="cart-div2">
+                <h2>Lagos Kitchen - Chop Life Full Cart</h2>
+                <div class="cart-div3">
+                    <div class="cart-items">
+                        <img src="./Foods/food 1.png"  alt="Jollof Rice & Grilled Chicken" class="cart-img">
+                        <div class="cart-info">
+                            <h3 class="cart-info-title">Jollof Rice & Grilled Chicken</h3>
+                            <br>
+                            <div>
+                                <p class="price-line ">
+                                    <span>Price :</span>
+                                    <span id="price-tag">$10</span>
+                                </p>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                        <div><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> -->
+
+        <!-- the main page-->
         <div class="div0">
             <a href="./index.html" target="_top"> <img src="./Logo.png" title="logo" alt="Logo" class="img1"> </a>
             <div class="div1">
@@ -273,7 +281,7 @@
                 <img src="./Drinks/drink 1.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
                 <div>
                     <h3> Zobo </h3>
-                    <p> Price: $10 </p>
+                    <p> Price: $5 </p>
                     <button > Add to Cart </button>
                 </div>
             </div>
@@ -281,7 +289,7 @@
                 <img src="./Drinks/drink 2.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
                 <div>
                     <h3> Strawberry Juice </h3>
-                    <p> Price: $10 </p>
+                    <p> Price: $5 </p>
                     <button > Add to Cart </button>
                 </div>
             </div>
@@ -289,7 +297,7 @@
                 <img src="./Drinks/drink 3.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
                 <div>
                     <h3> Coca-Cola soda </h3>
-                    <p> Price: $10 </p>
+                    <p> Price: $5 </p>
                     <button > Add to Cart </button>
                 </div>
             </div>
@@ -297,7 +305,7 @@
                 <img src="./Drinks/drink 4.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
                 <div>
                     <h3> Sprite soda </h3>
-                    <p> Price: $10 </p>
+                    <p> Price: $5 </p>
                     <button > Add to Cart </button>
                 </div>
             </div>
@@ -305,7 +313,7 @@
                 <img src="./Drinks/drink 5.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
                 <div>
                     <h3> Fanta soda </h3>
-                    <p> Price: $10 </p>
+                    <p> Price: $5 </p>
                     <button > Add to Cart </button>
                 </div>
             </div>
@@ -313,7 +321,7 @@
                 <img src="./Drinks/drink 6.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
                 <div>
                     <h3> Chapman </h3>
-                    <p> Price: $10 </p>
+                    <p> Price: $5 </p>
                     <button > Add to Cart </button>
                 </div>
             </div>
@@ -321,7 +329,7 @@
                 <img src="./Drinks/drink 7.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
                 <div>
                     <h3> Apple Juice </h3>
-                    <p> Price: $10 </p>
+                    <p> Price: $5 </p>
                     <button > Add to Cart </button>
                 </div>
             </div>
@@ -329,7 +337,7 @@
                 <img src="./Drinks/drink 8.png" title="food1" alt="Grilled Sandwich with Vegetables and Cheese" class="img3">
                 <div>
                     <h3> Malta Guinness </h3>
-                    <p> Price: $10 </p>
+                    <p> Price: $5 </p>
                     <button > Add to Cart </button>
                 </div>
             </div>
