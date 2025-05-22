@@ -9,6 +9,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 2000); // 3000 ms = 3 seconds delay
 });
 
+const imgs = document.querySelectorAll("img");
+
+imgs.forEach((imgss, index) => {
+    imgss.setAttribute("loading", "lazy")
+})
+
 document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndex = 0; // Start with the first slide
@@ -322,6 +328,13 @@ function updateName() {
         disableMobileTooltip();
     }
 }
+
+window.addEventListener("resize", () => {
+    const currentName = document.getElementById("usernamePlace").textContent;
+    if (currentName !== "User") {
+        updateName()
+    }
+});
 
 function enableMobileTooltip() {
     var div3 = document.getElementById("div3");
