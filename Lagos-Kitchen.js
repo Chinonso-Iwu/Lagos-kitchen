@@ -7,13 +7,15 @@ window.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('noscroll')
         });
     }, 2000); // 3000 ms = 3 seconds delay
+
+    const imgs = document.querySelectorAll("img");
+
+    imgs.forEach((imgss, index) => {
+        imgss.setAttribute("loading", "lazy")
+    })
 });
 
-const imgs = document.querySelectorAll("img");
 
-imgs.forEach((imgss, index) => {
-    imgss.setAttribute("loading", "lazy")
-})
 
 document.addEventListener("DOMContentLoaded", function () {
 
