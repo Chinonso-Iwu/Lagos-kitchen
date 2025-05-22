@@ -8,11 +8,11 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }, 2000); // 3000 ms = 3 seconds delay
 
-    const imgs = document.querySelectorAll("img");
-
-    imgs.forEach((imgss, index) => {
-        imgss.setAttribute("loading", "lazy")
-    })
+    //const imgs = document.querySelectorAll("img");
+//
+    //imgs.forEach((imgss, index) => {
+    //    imgss.setAttribute("loading", "lazy")
+    //})
 });
 
 
