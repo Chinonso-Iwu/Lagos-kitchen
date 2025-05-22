@@ -1,5 +1,14 @@
 window.addEventListener('DOMContentLoaded', () => {
+    var searchResults = document.getElementById("searchResults")
+    var search1 = document.querySelector(".search1")
+
+
+
     setTimeout(() => {
+        if (searchResults.style.display === "block") {
+            searchResults.style.display = "none"
+            search1.value = "";
+        }
         const req = document.getElementById('request-name');
         req.style.display = 'flex'; // show it first so opacity can animate
         requestAnimationFrame(() => {
@@ -8,11 +17,39 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }, 2000); // 3000 ms = 3 seconds delay
 
-    //const imgs = document.querySelectorAll("img");
-//
-    //imgs.forEach((imgss, index) => {
-    //    imgss.setAttribute("loading", "lazy")
-    //})
+    const imgs = document.querySelectorAll("img");
+
+    imgs.forEach((imgss, index) => {
+        imgss.setAttribute("loading", "lazy")
+    })
+
+    window.addEventListener("resize", () => {
+        var userName = document.getElementById("username").value;
+        var tooltipname = document.getElementById("tooltip-name");
+        var usernamePlace = document.getElementById("usernamePlace");
+        var div3 = document.getElementById("div3");
+
+        if (userName.length > 8) {
+            usernamePlace.textContent = userName;
+            tooltipname.textContent = userName;
+
+            if (window.innerWidth <= 1023) {
+                enableMobileTooltip();
+                tooltipname.classList.add("tooltip-name")
+                div3.classList.remove("namediplay")
+            } else {
+                disableMobileTooltip();
+                tooltipname.classList.add("tooltip-name")
+                div3.classList.add("namediplay")
+            }
+        } else {
+            usernamePlace.textContent = userName;
+            tooltipname.classList.remove("tooltip-name");
+            tooltipname.style.display = "none"; // hide tooltip if not needed
+            disableMobileTooltip();
+            div3.classList.remove("namediplay")
+        }
+    });
 });
 
 
@@ -244,6 +281,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const priceTag = document.getElementById("price-tag");
         const img = fooddisplayer.querySelector("img");
         const Ingredientslist = document.getElementById("Ingredients-list");
+        var searchResults = document.getElementById("searchResults");
+        var search1 = document.querySelector(".search1");
 
         // Update content
         img.setAttribute("src", imgSrc);
@@ -268,6 +307,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Show food displayer and lock background scroll
+        if (searchResults.style.display === "block") {
+            searchResults.style.display = "none"
+            search1.value ="";
+        }
         fooddisplayer.style.display = "flex";
 
     }
@@ -318,6 +361,7 @@ function updateName() {
         if (window.innerWidth <= 1023) {
             enableMobileTooltip();
             tooltipname.classList.add("tooltip-name")
+            div3.classList.remove("namediplay")
         } else {
             disableMobileTooltip();
             tooltipname.classList.add("tooltip-name")
@@ -328,15 +372,14 @@ function updateName() {
         tooltipname.classList.remove("tooltip-name");
         tooltipname.style.display = "none"; // hide tooltip if not needed
         disableMobileTooltip();
+        div3.classList.remove("namediplay")
     }
 }
 
-window.addEventListener("resize", () => {
-    const currentName = document.getElementById("usernamePlace").textContent;
-    if (currentName !== "User") {
-        updateName()
-    }
-});
+
+
+
+
 
 function enableMobileTooltip() {
     var div3 = document.getElementById("div3");
@@ -354,17 +397,18 @@ function enableMobileTooltip() {
 }
 
 function disableMobileTooltip() {
-    var usernamePlace = document.getElementById("usernamePlace");
+    var div3 = document.getElementById("div3");
 
-    usernamePlace.onclick = null;
+    div3.onclick = null;
     document.removeEventListener("click", closeTooltipOutside);
 }
 
 function closeTooltipOutside(event) {
-    var usernamePlace = document.getElementById("usernamePlace");
+    var div3 = document.getElementById("div3");
     var tooltipname = document.getElementById("tooltip-name");
 
-    if (!usernamePlace.contains(event.target) && !tooltipname.contains(event.target)) {
+
+    if (!div3.contains(event.target) && !tooltipname.contains(event.target)) {
         tooltipname.style.display = "none";
     }
 }

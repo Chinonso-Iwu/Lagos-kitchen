@@ -439,6 +439,7 @@ body.noscroll {
     border-color: white transparent transparent transparent;
 }
 
+
 @media (min-width: 1024px) {
     .namediplay:hover .tooltip-name {
         display: block;
@@ -584,7 +585,7 @@ h1 {
 }
 
 /* For medium screens (e.g., 600px to 1023px) */
-@media screen and (min-width: 600px) and (max-width: 1023px) {
+@media screen and (min-width: 600px) and (max-width: 1023.99px) {
     .div7 {
         width: calc(33.33% - 20px);
         /* Three boxes per row */
